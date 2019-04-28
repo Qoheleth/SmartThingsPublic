@@ -103,8 +103,6 @@ def parse(String description) {
 
 def installed() {
     log.trace "installed()"
-    setBatteryLevel(94)
-    unlock()
     initialize()
 }
 
@@ -118,6 +116,8 @@ def initialize() {
     log.trace "initialize()"
     sendEvent(name: "checkInterval", value: 12 * 60, displayed: false, data: [protocol: "cloud", scheme: "untracked"])
     clearJamNextOperation()
+    setBatteryLevel(94)
+    unlock()
 }
 
 private processPreferences() {
@@ -191,4 +191,3 @@ def setBatteryLevel(Number lvl) {
     log.trace "setBatteryLevel(level)"
     sendEvent(name: "battery", value: lvl)
 }
-

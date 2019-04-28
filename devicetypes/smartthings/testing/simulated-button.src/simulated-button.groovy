@@ -68,4 +68,5 @@ private initialize() {
 	sendEvent(name: "DeviceWatch-DeviceStatus", value: "online")
 	sendEvent(name: "healthStatus", value: "online")
 	sendEvent(name: "DeviceWatch-Enroll", value: [protocol: "cloud", scheme:"untracked"].encodeAsJson(), displayed: false)
+    sendEvent(name: "button", value: "idle", data: [buttonNumber: "1"], descriptionText: "$device.displayName button 1 is idle", isStateChange: false)
 }
